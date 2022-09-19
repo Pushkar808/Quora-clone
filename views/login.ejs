@@ -1,0 +1,54 @@
+<div id="Login-container">
+    <div id="login-img"><img src="./images/login.png"></div>
+    <div id="login-form-container">
+        <div id="login-head"></div>
+        <div id="login-info"></div>
+        <form action="#" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required placeholder="abc@gmail.com">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <br>
+            <input type="submit" value="Login">
+        </form>
+        <div id="google-signin">
+            <a href="#" id="sign-in-google">
+                <img src="./images/g-logo.png">
+                <span>Sign in with Google</span>
+            </a>
+        </div>
+    </div>
+
+    <p >New to community? <a href="#" onClick="toggle('Signup')">Signup here</a></p>
+</div>
+
+<!-- sign up form -->
+<div id="Signup-form">
+    <!-- same css as abaove -->
+    <div id="login-form-container">
+        <div id="login-img"><img src="./images/login.png"></div>
+        <div id="login-form-container">
+            <form action="#" method="post">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required placeholder="abc@gmail.com">
+                <label for="cemail">Confirm Email:</label>
+                <input type="email" id="cemail" required placeholder="abc@gmail.com">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <label for="cpassword">Confirm Password:</label>
+                <input type="password" id="cpassword" required>
+                <label for="fullname">Full name:</label>
+                <input type="password" id="fullname" required>
+                <br>
+                <input type="submit" value="SignUp">
+            </form>
+            <div id="google-signin">
+                <a href="#" id="sign-in-google">
+                    <img src="./images/g-logo.png">
+                    <span>Sign up with Google</span>
+                </a>
+            </div>
+        </div>
+        <p >Already have Account? <a href="#" onClick="toggle('Signin')">Login here</a></p>
+    </div>
+</div>
