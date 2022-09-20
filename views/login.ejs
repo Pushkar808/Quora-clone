@@ -3,11 +3,11 @@
     <div id="login-form-container">
         <div id="login-head"></div>
         <div id="login-info"></div>
-        <form action="#" method="post">
+        <form action="/createSession" method="post">
             <label for="email">Email:</label>
-            <input type="email" id="email" required placeholder="abc@gmail.com">
+            <input type="email" id="email" name="email" required placeholder="abc@gmail.com">
             <label for="password">Password:</label>
-            <input type="password" id="password" required>
+            <input type="password" id="password" name="password" required>
             <br>
             <input type="submit" value="Login">
         </form>
@@ -28,17 +28,17 @@
     <div id="login-form-container">
         <div id="login-img"><img src="./images/login.png"></div>
         <div id="login-form-container">
-            <form action="#" method="post">
+            <form action="/signup" method="post">
                 <label for="email">Email:</label>
-                <input type="email" id="email" required placeholder="abc@gmail.com">
+                <input type="email" name="email" id="email" required placeholder="abc@gmail.com">
                 <label for="cemail">Confirm Email:</label>
-                <input type="email" id="cemail" required placeholder="abc@gmail.com">
+                <input type="email" name="cemail" id="cemail" required placeholder="abc@gmail.com">
                 <label for="password">Password:</label>
-                <input type="password" id="password" required>
+                <input type="password" id="password" name="password" required>
                 <label for="cpassword">Confirm Password:</label>
-                <input type="password" id="cpassword" required>
+                <input type="password" name="cpassword" id="cpassword" required>
                 <label for="fullname">Full name:</label>
-                <input type="password" id="fullname" required>
+                <input type="text" id="fullname" name="fullname"  required>
                 <br>
                 <input type="submit" value="SignUp">
             </form>
