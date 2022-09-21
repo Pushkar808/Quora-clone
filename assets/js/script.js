@@ -11,3 +11,4 @@ function toggle(id){
         signupForm.style.display="block";
     }
 }
+console.log(document.cookie.split(';'));

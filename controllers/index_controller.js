@@ -1,10 +1,19 @@
 const user = require('../models/user')
 
 module.exports.indexSample = (req, res) => {
-    res.render('index')
+    let showLogout=false;
+    if(req.isAuthenticated()){//if user is already authenticated then show logout button
+        showLogout=true;
+    }
+    res.render('index',{
+        showLogout:showLogout
+    })
 }
 //showing login form
 module.exports.LoginForm = (req, res) => {
+    if(req.isAuthenticated()){//if user is already authenticated then don't show the form
+        return res.redirect('/');
+    }
     res.render('login')
 }
 //signin controller
@@ -13,9 +22,11 @@ module.exports.Signin = (req, res) => {
         if (err) { console.log("ERROR In signin" + err); return; }
         if(user){
         console.log("Signed in success");
-        return res.redirect('/')
+        return res.redirect('/',{
+            login:true
+        })//if sigin success go to this
         }
-        return res.redirect('back');
+        return res.redirect('back');//else go here
     });
 }
 //creating user after signup
@@ -54,5 +65,13 @@ module.exports.createSession = (req, res) => {
             res.redirect('/');
         }
         
+    });
+}
+
+//Logut button
+module.exports.destroySession=(req,res)=>{
+    req.logout((err)=>{
+        if (err) { console.log("ERROR In Logging out user" + err); return done(err);}
+        res.redirect('/');
     });
 }

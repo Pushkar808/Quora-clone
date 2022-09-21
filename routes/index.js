@@ -8,6 +8,7 @@ router.use('/createSession',passport.authenticate('local',{
 }),index_controller.createSession);
 
 router.use('/login',index_controller.LoginForm);
+router.use('/logout',index_controller.destroySession);
 router.use('/signin',index_controller.Signin);
 router.use('/signup',index_controller.Signup);
 router.use('/',index_controller.indexSample);

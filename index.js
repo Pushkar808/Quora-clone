@@ -42,6 +42,9 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+//setting the ejs login var to true is authenticated else false 
+app.use(passport.setAuthenticatedUser)//find this on config/pass
+
 
 app.use(express.static('./assets'));
 // app.use(expressLayour)
