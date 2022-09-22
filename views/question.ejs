@@ -1,0 +1,18 @@
+<div id="question-container">
+    <div id="question-main-head">
+        <h1>Ask a public question</h1>
+    </div>
+    <div id="question-container">
+        <form action="/question/submitquestion" method="post">
+            <h3>Title</h3>
+            <div id="label-info">Write a specific and upto the mark title for your question (max 150 words)</div>
+            <input type="text" maxlength="150" id="ques-title" name="title" required placeholder="e.g. is there any aliens in mars ?">
+            <h3>Body</h3>
+            <div id="label-info">Give description of your query/question (max 1500 words) </div>
+            <textarea maxlength="1500" required id="ques-desc" name="description" placeholder="Description of your question"></textarea>
+            <!-- <h3>Tags</h3>
+            <div id="label-info">Write a specific and upto the mark title for your question</div> -->
+            <input type="submit" value="Ask Question">
+        </form>
+    </div>
+</div>
