@@ -7,6 +7,7 @@ const passport = require('passport');
 const passportLocal = require('./config/passport');
 const MongoStore = require('connect-mongo');
 const cookieParser = require('cookie-parser');
+const passportGoogle=require('./config/google-config');
 const port = 8000;//port for server
 const app = express();
 

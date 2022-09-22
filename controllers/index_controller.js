@@ -51,7 +51,7 @@ module.exports.Signup = async (req, res) => {
 //creating session for a particular user
 
 module.exports.createSession = (req, res) => {
-    console.log("OK");
+    console.log("Session created");
     user.findOne({ email: req.body.email }, (err, user) => {
         if (err) { console.log("ERROR In finding user in passport config" + err); return done(err); }
         //if user has been there then
