@@ -4,11 +4,10 @@ module.exports.ask = (req, res) => {
     res.render('question.ejs');
 }
 module.exports.submitquestion = async (req, res) => {
-    console.log(req.body);
     let question = await questionSchema.create({
         title: req.body.title,
         description: req.body.description,
-        user:req.user._id
+        user: req.user._id
     }, (err, question) => {
         if (err) { console.log("ERROR In signup" + err); return; }
         res.render('question')
@@ -17,3 +16,12 @@ module.exports.submitquestion = async (req, res) => {
 }
 
 
+module.exports.myquestions = async (req, res) => {
+    
+    let myQuestions =  questionSchema.find({user:req.user._id}).exec((err,myQuestions)=>{
+        if(err){console.log("error in getting ques: "+err);return;}
+       return res.render('myquestion', {
+                    questions: myQuestions
+                });
+    });
+}

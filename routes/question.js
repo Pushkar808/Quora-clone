@@ -6,5 +6,6 @@ const question_controller=require('../controllers/question_controller')
 
 router.use('/ask',passport.checkAuthentication,question_controller.ask);
 router.use('/submitquestion',passport.checkAuthentication,question_controller.submitquestion);
+router.use('/myquestions',passport.checkAuthentication,question_controller.myquestions);
 
 module.exports=router;

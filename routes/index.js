@@ -9,7 +9,7 @@ router.use('/createSession',passport.authenticate('local',{
 
 router.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 router.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/login'}), index_controller.LoginForm);
-
+router.use('/user',require('./user'));
 router.use('/question',require('./question'));
 router.use('/like',require('./like'));
 

@@ -1,16 +1,7 @@
-<div id="jumbo-container">
-    <div id="jumbo-info">
-        <h1>Welcome to Ask a Question</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s</p>
-    </div>
-    <div id="jumbo-img"><img src="./images/jumbo-img.png"></div>
-</div>
-
-<div id="top-questions-head">
-    <h1>Top Questions</h1>
-</div>
 <div id="top-questions-container">
+    <% if(questions){ %>
+        <p>No questions asked from your side</p>    
+    <% } %>
     <% for(question of questions){ %>
         <div class="question">
             <!--question -->
@@ -37,5 +28,4 @@
         </div>
         <% } %>
 
-</div>
 </div>
