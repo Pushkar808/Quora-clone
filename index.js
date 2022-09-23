@@ -13,14 +13,14 @@ const app = express();
 
 //middlewares
 app.use(cookieParser());
-
+app.use(express.urlencoded());
 
 
 //setting template engine
 app.set('view engine', 'ejs');
 //setting where to find views for ejs
 app.set('views', path.join(__dirname, 'views'));
-app.use(expressLayouts);//using layouts in express
+
 app.use(session({
     name: 'user_id',
     secret: 'clone',
@@ -48,10 +48,10 @@ app.use(passport.setAuthenticatedUser)//find this on config/pass
 
 
 app.use(express.static('./assets'));
-// app.use(expressLayour)
-app.set('layout expressStyles', true);
-app.set('layout expressScript', true);
-app.use(express.urlencoded());
+app.use(expressLayouts)
+app.set('layout extractStyles', true);
+app.set("layout extractScript", true)
+
 
 
 //local server

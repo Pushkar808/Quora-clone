@@ -1,19 +1,24 @@
 <html>
-    <head>
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
-        <script src="https://kit.fontawesome.com/4c8d21ec57.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/css/index.css">
-    </head>
-    <body>
-        <%- include('header'); %>
 
-            <%- body %>
+<head>
 
-        <%- include('footer'); %>
-        
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/solid.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
 
-    <script src="js/script.js"></script>
-    </body>
+    <script src="https://kit.fontawesome.com/4c8d21ec57.js" crossorigin="anonymous"></script>
+    <%- style %>
+</head>
+
+<body>
+    <%- include('header'); %>
+
+        <%- body %>
+
+            <%- include('footer'); %>
+
+                <script src="js/script.js"></script>
+</body>
+
 </html>

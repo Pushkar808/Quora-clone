@@ -11,6 +11,7 @@ router.get('/auth/google', passport.authenticate('google', {scope: ['profile', '
 router.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/login'}), index_controller.LoginForm);
 
 router.use('/question',require('./question'));
+router.use('/like',require('./like'));
 
 router.use('/login',index_controller.LoginForm);
 router.use('/logout',index_controller.destroySession);

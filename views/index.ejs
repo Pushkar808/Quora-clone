@@ -1,7 +1,41 @@
 <div id="jumbo-container">
     <div id="jumbo-info">
         <h1>Welcome to Ask a Question</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s</p>
     </div>
     <div id="jumbo-img"><img src="./images/jumbo-img.png"></div>
+</div>
+
+<div id="top-questions-head">
+    <h1>Top Questions</h1>
+</div>
+<div id="top-questions-container">
+    <% for(question of questions){ %>
+        <div class="question">
+            <!--question -->
+            <div class="top-question">
+                <div class="top-question-title">
+                    <a href="<%= question._id %>"><%= question.title %></a>
+                </div>
+                <div class="top-question-description">
+                    <%= question.description %>
+                </div>
+            </div>
+            <hr>
+            <div class="like-container">
+                <!--as length is storing the total likes-->
+                <div class="like">
+                        <a href="/like/toggle/?id=<%= question._id %>&type=Question" class="upvote-button">Like <i class="far fa-thumbs-up"></i></a>       
+                   </div>
+                <div class="total-upvotes"><span>Likes:</span><%= question.likes.length %></div>       
+            </div>
+            <div class="createdBy">
+                <p><a href="/showProfile/?id=<%= question.user.id %>">Created By: <%= question.user.fullname %></a>
+                </p>
+            </div>
+        </div>
+        <% } %>
+
+</div>
 </div>

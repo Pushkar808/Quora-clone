@@ -1,10 +1,16 @@
 /*header css*/
-body{
+
+body,hr{
     margin:0;
 }
+a{
+    text-decoration: none;
+    color:black
+}
+
 header{
     padding:10px;
-    width:100%;
+    width: 98.5%;
     display: flex;
     background-color: #3d3d3d;
     justify-content: space-between;
@@ -37,6 +43,53 @@ header{
 }
 #jumbo-info{
     width:210px;
+}
+
+/*top questions in index*/
+#top-questions-head{
+    width:100%;
+}
+.question{
+    padding:10px;
+    border:1px solid black;
+    margin:10px;
+    border-radius: 5px;
+    box-shadow:#585858 0px 5px 5px;
+}
+.top-questions-container{
+    display: flex;
+    flex-direction: column;
+}
+.top-question{
+    padding:20px;
+}
+.top-question-title{
+    font-size:25px;
+    font-weight: bold;
+    text-transform:capitalize;
+    margin:10px 0px;
+}
+.top-question-description{
+    padding:10px 20px;
+    color:#6b6b6b
+}
+.like-container{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.like-container a{
+    text-decoration: none;
+    color:black;
+}
+.createdBy a{
+    text-decoration: none;
+    color:black;
+}
+.createdBy a:hover,.top-question-title a:hover{
+    color:#fc6f6f;
 }
 
 /*Login form*/
@@ -91,7 +144,7 @@ footer{
     align-items: center;
     position:relative;
     bottom:0;
-    width:100%; 
+    width:98.5%; 
 }
 #social-links{
     padding:10px;
@@ -124,9 +177,4 @@ footer{
     resize: none;
     margin:5px;
 }
-/* #question-container input{
-    padding:10px;
-    font-size:18px;
-    margin:5px;
-    width:100%;
-} */
+

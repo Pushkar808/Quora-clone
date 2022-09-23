@@ -1,17 +1,30 @@
 const user = require('../models/user')
+const questionSchema = require('../models/question')
 
-module.exports.indexSample = (req, res) => {
-    let showLogout=false;
-    if(req.isAuthenticated()){//if user is already authenticated then show logout button
-        showLogout=true;
+module.exports.indexSample =  (req, res) => {
+    let showLogout = false;
+    if (req.isAuthenticated()) {//if user is already authenticated then show logout button
+        showLogout = true;
     }
-    res.render('index',{
-        showLogout:showLogout
-    })
+    try {
+         questionSchema.find({})
+         .sort('-createdAt')
+         .populate('user')
+         .exec((err, questions) => {
+            if (err) { console.log("ERROR In fetching questions" + err); return; }
+            return res.render('index', {
+                questions: questions,
+                showLogout: showLogout
+            })
+        })
+    } catch (err) {
+        console.log("ERROR FOUND: " + err);
+        return;
+    }
 }
 //showing login form
 module.exports.LoginForm = (req, res) => {
-    if(req.isAuthenticated()){//if user is already authenticated then don't show the form
+    if (req.isAuthenticated()) {//if user is already authenticated then don't show the form
         return res.redirect('/');
     }
     res.render('login')
@@ -20,11 +33,11 @@ module.exports.LoginForm = (req, res) => {
 module.exports.Signin = (req, res) => {
     user.find({ email: req.body.email, password: req.body.password }, (err, user) => {
         if (err) { console.log("ERROR In signin" + err); return; }
-        if(user){
-        console.log("Signed in success");
-        return res.redirect('/',{
-            login:true
-        })//if sigin success go to this
+        if (user) {
+            console.log("Signed in success");
+            return res.redirect('/', {
+                login: true
+            })//if sigin success go to this
         }
         return res.redirect('back');//else go here
     });
@@ -64,14 +77,14 @@ module.exports.createSession = (req, res) => {
             res.cookie('user_id', user._id);
             res.redirect('/');
         }
-        
+
     });
 }
 
 //Logut button
-module.exports.destroySession=(req,res)=>{
-    req.logout((err)=>{
-        if (err) { console.log("ERROR In Logging out user" + err); return done(err);}
+module.exports.destroySession = (req, res) => {
+    req.logout((err) => {
+        if (err) { console.log("ERROR In Logging out user" + err); return done(err); }
         res.redirect('/');
     });
 }
