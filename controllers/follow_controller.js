@@ -31,4 +31,7 @@ module.exports.followUser = async (req, res) => {
             return;
         }
     }
+    else{
+        return res.redirect('back')
+    }
 }

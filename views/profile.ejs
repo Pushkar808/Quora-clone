@@ -1,17 +1,18 @@
 <div id="profile-container">
     <div id="name-head">
         <h1>About <%= userdetails.fullname %> </h1>
-      <%  if (isfollowed){ %>
-        <a href="/follow/user/?id=<%= userdetails.id %>"><i class="fa-solid fa-plus"></i> Follow</a>
-        <%  }else{ %>
-        <a href="/follow/user/?id=<%= userdetails.id %>"><i class="fa-solid fa-plus"></i> Following</a>
-        <% } %>
+        <!--if user is same then user can't follow himself-->
+    <% if(userinfo._id.equals(userdetails._id)==0){ %>
+        <%  if (isfollowed){ %>
+            <a href="/follow/user/?id=<%= userdetails.id %>"><i class="fa-solid fa-plus"></i> Follow</a>
+            <%  }else{ %>
+            <a href="/follow/user/?id=<%= userdetails.id %>"><i class="fa-solid fa-plus"></i> Following</a>
+            <% } %>
+    <% } %> 
+        
         <hr>
     </div>
     <div id="info-container">
-        <div>
-            <p>Registered:06 JUNE 2022</p>
-        </div>
         <div>
             <p>Email: <%= userdetails.email %> </p>
         </div>
@@ -54,5 +55,19 @@
             <a href="#"><i class="fa-brands fa-square-google-plus"></i></a>
             <a href="#"><i class="fa-solid fa-envelope"></i></a>
         </div>
+    </div>
+</div>
+
+
+
+<div id="chat-container">
+    <div id="chats">
+        <div class="from-user-chat">From</div>
+        <div class="to-user-chat">To</div>
+
+    </div>
+    <div id="chat-input">
+        <input type="text" name="message" id="message-input">
+        <input type="submit" value="Submit">
     </div>
 </div>

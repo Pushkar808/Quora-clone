@@ -1,5 +1,4 @@
 function toggle(id){
-    console.log("KCC")
     let signinForm=document.getElementById('Login-container');
     let signupForm=document.getElementById('Signup-form');
     if(signinForm.style.display=="none"){
@@ -11,4 +10,6 @@ function toggle(id){
         signupForm.style.display="block";
     }
 }
-console.log(document.cookie.split(';'));
+function description(){
+    console.log("DESCR")
+}

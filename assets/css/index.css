@@ -1,265 +1,357 @@
 /*header css*/
 
-body,hr{
-    margin:0;
-}
-a{
-    text-decoration: none;
-    color:black
+body,
+hr {
+    margin: 0;
 }
 
-header{
-    padding:10px;
+a {
+    text-decoration: none;
+    color: black
+}
+
+header {
+    padding: 10px;
     width: 98.5%;
     display: flex;
     background-color: #3d3d3d;
     justify-content: space-between;
     align-items: center;
 }
-#logo img{
-    width:50px;
-    height:50px;
-    border-radius:50%;
+
+#logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
-#button-container a{
+
+#button-container a {
     text-decoration: none;
-    margin:10px;
-    padding:20px;
-    font-size:18px;
-    color:#ffffff;    
+    margin: 10px;
+    padding: 20px;
+    font-size: 18px;
+    color: #ffffff;
 }
-#button-container a:hover{
-    background-color:red;
+
+#button-container a:hover {
+    background-color: red;
 }
 
 /*index css*/
-#jumbo-container{
+#jumbo-container {
     background-color: #fc6f6f;
-    padding:20px;
-    color:#ffffff;
-    display: flex;   
+    padding: 20px;
+    color: #ffffff;
+    display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
 }
-#jumbo-info{
-    width:210px;
+
+#jumbo-info {
+    width: 210px;
 }
 
 /*top questions in index*/
-#top-questions-head{
-    width:100%;
+#top-questions-head {
+    width: 100%;
 }
-.question{
-    padding:10px;
-    border:1px solid black;
-    margin:10px;
+
+.question {
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px;
     border-radius: 5px;
-    box-shadow:#585858 0px 5px 5px;
+    box-shadow: #585858 0px 5px 5px;
 }
-.top-questions-container{
+
+.top-questions-container {
     display: flex;
     flex-direction: column;
 }
-.top-question{
-    padding:20px;
+
+.top-question {
+    padding: 20px;
 }
-.top-question-title{
-    font-size:25px;
+
+.top-question-title {
+    font-size: 25px;
     font-weight: bold;
-    text-transform:capitalize;
-    margin:10px 0px;
+    text-transform: capitalize;
+    margin: 10px 0px;
 }
-.top-question-description{
-    padding:10px 20px;
-    color:#6b6b6b
+
+.top-question-description {
+    padding: 10px 20px;
+    color: #6b6b6b;
+    overflow: hidden;
 }
-.like-container{
+
+.like-container {
     position: relative;
     display: flex;
     justify-content: space-between;
     margin-left: 10px;
     font-size: 20px;
 }
-.like-container a{
+
+.like-container a {
     text-decoration: none;
-    color:black;
-}
-.createdBy a{
-    text-decoration: none;
-    color:black;
-}
-.createdBy a:hover,.top-question-title a:hover{
-    color:#fc6f6f;
+    color: black;
 }
 
+.createdBy a {
+    text-decoration: none;
+    color: black;
+}
+
+.createdBy a:hover,
+.top-question-title a:hover {
+    color: #fc6f6f;
+}
+
+#chat-container {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    bottom: 10%;
+    right: 0;
+    position: absolute;
+    width: 485px;
+    background-color: #00baf0;
+    height: 300px;
+    overflow-y: auto;
+    justify-content: flex-end;
+}
+
+#chat-input {
+    position: static;
+    display: inline-block;
+    top: 0;
+}
+
+#chat-input input {
+    padding: 5px;
+    font-size: 15px;
+}
+
+#message-input {
+    width: 420px;
+}
+
+#chats div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding:10px 30px;
+    width: 300px;
+    border-radius: 52px 0px 52px 0px;
+}
+
+.to-user-chat {
+    text-align: right;
+    margin-left: 150px;
+    background-color: #e13138;
+}
+.from-user-chat {
+    background-color: #ec7c7f;
+}
+
+
 /*Login form*/
-#Login-container{
+#Login-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-#login-form-container{
+
+#login-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#login-form-container input{
+
+#login-form-container input {
     position: relative;
-    padding:10px;
-    font-size:20px;
+    padding: 10px;
+    font-size: 20px;
     display: block;
-    width:500px;
+    width: 500px;
 }
-#google-signin{
+
+#google-signin {
     position: relative;
-    top:-30px;
+    top: -30px;
 }
-#sign-in-google{
+
+#sign-in-google {
     position: relative;
-    color:#000000;
-    padding:25px;
+    color: #000000;
+    padding: 25px;
     text-decoration: none;
-   
+
 }
-#sign-in-google img{
-    top:30px;
+
+#sign-in-google img {
+    top: 30px;
     position: relative;
-    width:100px;
+    width: 100px;
 }
-#sign-in-google span{
+
+#sign-in-google span {
     font-size: 20px;
 }
-#Signup-form{
-    display:none;/*signup form show it on click*/   
+
+#Signup-form {
+    display: none;
+    /*signup form show it on click*/
 }
 
 /*footer code*/
-footer{
-    padding:10px;
+footer {
+    padding: 10px;
     background-color: #3d3d3d;
-    color:#ffffff;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: static;
     bottom: 0;
-    width:98.5%; 
+    width: 98.5%;
 }
-#social-links{
-    padding:10px;
+
+#social-links {
+    padding: 10px;
 }
-#social-links a{
-    background-color:transparent;
+
+#social-links a {
+    background-color: transparent;
     text-decoration: none;
-    color:#ffffff;
-    margin:5px;
-    font-size:20px;
+    color: #ffffff;
+    margin: 5px;
+    font-size: 20px;
 }
-#social-links i:hover{
-    box-shadow:grey 7px 5px 20px;
+
+#social-links i:hover {
+    box-shadow: grey 7px 5px 20px;
 }
 
 /*ask questions*/
-#question-container{
-    padding:30px;
+#question-container {
+    padding: 30px;
 }
-#question-container input{
-    padding:10px;
-    font-size:18px;
-    margin:5px;
-    width:100%;
+
+#question-container input {
+    padding: 10px;
+    font-size: 18px;
+    margin: 5px;
+    width: 100%;
 }
-#ques-desc{
-    width:100%;
-    height:200px;
-    padding:10px;
+
+#ques-desc {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
     resize: none;
-    margin:5px;
+    margin: 5px;
 }
 
 /*profile css*/
-#profile-container{
-    width:60%;
-    margin:10px;
+#profile-container {
+    width: 60%;
+    margin: 10px;
     display: flex;
-    flex-direction:column;
-    padding:30px;
+    flex-direction: column;
+    padding: 30px;
     flex-wrap: wrap;
     /* border:1px solid black; */
-    box-shadow:grey 2px 5px 15px;
-    border-radius:5px;
+    box-shadow: grey 2px 5px 15px;
+    border-radius: 5px;
 }
-#name-head{
+
+#name-head {
     text-transform: capitalize;
 }
-#name-head a{
+
+#name-head a {
     display: inline-block;
-    bottom:0;   
+    bottom: 0;
 }
-#info-container{
+
+#info-container {
     width: 100%;
     max-height: 150px;
     overflow-wrap: break-word;
     margin: 10px;
 }
-#Ask-button{
-    background-color:#fc6f6f;
-    padding:10px;
-    font-size:17px;
-    color:#ffffff;
+
+#Ask-button {
+    background-color: #fc6f6f;
+    padding: 10px;
+    font-size: 17px;
+    color: #ffffff;
     transition: all .8s;
-    margin:20px 0px;
+    margin: 20px 0px;
 }
-#Ask-button:hover{
+
+#Ask-button:hover {
     background-color: #1a1a1a;
 }
-#stats-container{
-    width:30%;
+
+#stats-container {
+    width: 30%;
     padding: 20px;
-    height: 295px;
+    height: 275px;
     position: absolute;
     display: inline-block;
-    bottom: 205px;
+    bottom: 223px;
     right: 0%;
-    box-shadow:grey 2px 5px 15px;
-    border-radius:5px;
-    margin:10px;
+    box-shadow: grey 2px 5px 15px;
+    border-radius: 5px;
+    margin: 10px;
 }
-#stats-property-container{
-    margin:30px 0px;
+
+#stats-property-container {
+    margin: 30px 0px;
     display: flex;
-    font-size:20px;
+    font-size: 20px;
     justify-content: space-between;
-    padding:15px;
+    padding: 15px;
 }
-#stats-property a{
-    margin:10px;
-    padding:10px;
-    width:300px;
+
+#stats-property a {
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
     /* background-color:#cecece; */
 }
-#stats-property a:hover{
-    color:#fc8d8d;
+
+#stats-property a:hover {
+    color: #fc8d8d;
 }
-#stats-property div{
+
+#stats-property div {
     display: inline-block;
 }
 
-#social a{
-    font-size:30px;
-    margin:5px;
+#social a {
+    font-size: 30px;
+    margin: 5px;
 }
+
 /*styling icons*/
-#social .fa-square-facebook{
-    color:#3b5997;
+#social .fa-square-facebook {
+    color: #3b5997;
 }
-#social .fa-square-twitter{
-    color:#00baf0;
+
+#social .fa-square-twitter {
+    color: #00baf0;
 }
-#social .fa-square-pinterest{
+
+#social .fa-square-pinterest {
     color: #e13138;
 }
-#social .fa-square-google-plus{
-    color:#d64d41;
+
+#social .fa-square-google-plus {
+    color: #d64d41;
 }
