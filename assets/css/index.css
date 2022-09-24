@@ -193,6 +193,10 @@ footer{
 #name-head{
     text-transform: capitalize;
 }
+#name-head a{
+    display: inline-block;
+    bottom:0;   
+}
 #info-container{
     width: 100%;
     max-height: 150px;

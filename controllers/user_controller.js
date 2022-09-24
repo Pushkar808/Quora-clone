@@ -1,7 +1,21 @@
 const userSchema = require('../models/user')
+const followSchema = require('../models/followers')
 module.exports.showProfile = async (req, res) => {
-    let user = await userSchema.findById(req.query.id);
-    res.render('profile', {
-        userdetails: user
-    });
+    //finding user then inside it finding if the query.id user is followed by req.user or not 
+    try {
+         await userSchema.findById(req.query.id, async (err, users) => {
+            let follower = await followSchema.find({ from_user: req.user._id, to_user: req.query.id })
+            let isFollowed = false;//to send if this user has been followed or not
+            if (follower.length != 0)
+                isFollowed = true;
+            res.render('profile', {
+                userdetails: users,
+                isfollowed: isFollowed
+            });
+        })
+    } catch (err) {
+        console.log("SOME ERR:" + err)
+        return;
+    }
+
 }
