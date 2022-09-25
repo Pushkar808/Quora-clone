@@ -17,7 +17,7 @@
             <p>Email: <%= userdetails.email %> </p>
         </div>
         <div>
-            <p>Email: OK@GG>CC</p>
+            <p><%= userdetails %></p>
         </div>
         <div>
             <p>Email: OK@GG>CC</p>
@@ -61,13 +61,21 @@
 
 
 <div id="chat-container">
+
+    
     <div id="chats">
         <div class="from-user-chat">From</div>
         <div class="to-user-chat">To</div>
-
     </div>
     <div id="chat-input">
         <input type="text" name="message" id="message-input">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" id="send-message">
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="/js/chat-engine.js"></script>
+<% if (userdetails){ %><!--if user is signed up then only start the socketsever-->
+    <script>
+        new ChatEngine('chat-container','<%= userinfo.email %>')
+    </script>
+<% } %>

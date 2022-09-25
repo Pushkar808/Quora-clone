@@ -7,9 +7,17 @@ const passport = require('passport');
 const passportLocal = require('./config/passport');
 const MongoStore = require('connect-mongo');
 const cookieParser = require('cookie-parser');
-const passportGoogle=require('./config/google-config');
+const passportGoogle = require('./config/google-config');
 const port = 8000;//port for server
 const app = express();
+
+
+//adding sockets
+
+const chatServer = require('http').Server(app);
+const serverSocket = require('./config/socket_config').chatSockets(chatServer);
+chatServer.listen(5555);
+console.log("chat server is running on port 5000")//can give any port number other than server's
 
 //middlewares
 app.use(cookieParser());
@@ -29,12 +37,12 @@ app.use(session({
     cookie: { maxAge: (1000 * 60 * 100) },
     store: MongoStore.create(
         {
-            mongoUrl:'mongodb://localhost:27017/Quora_clone',
+            mongoUrl: 'mongodb://localhost:27017/Quora_clone',
             autoRemove: 'disabled'
-        
+
         },
-        function(err){
-            console.log(err ||  'connect-mongodb setup ok');
+        function (err) {
+            console.log(err || 'connect-mongodb setup ok');
         }
     )
 
