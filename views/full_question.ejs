@@ -1,0 +1,38 @@
+<div>
+    <div id="full-question-container">
+        <div id="question">
+            <p>
+                <%= question.title %>
+            </p>
+        </div>
+        <div id="ques-description">
+            <p>
+                <%= question.description %>
+            </p>
+        </div>
+        <div id="detail-ques-info">
+            <span><a href="/like/toggle/?id=<%= question._id %>&type=Question">Like<i class="far fa-thumbs-up"></i>:<%=
+                        question.likes.length %></a></span>
+            <span>Comments:100</span>
+            <span><a href="/user/showprofile/?id=<%= question.user.id %>">Created By: <%= question.user.fullname %>
+                </a></span>
+        </div>
+    </div>
+</div>
+
+<div id="comments-container">
+    <div id="line"></div>
+    <ul id="comment-bullet">
+        <li>
+            <div id="Comment">
+                <div id="comment-descr">
+                    <p>THIS IS COMMENT</p>
+                </div>
+                <div id="comment-like"><a href="#">Like<i class="far fa-thumbs-up"></div></i></a></span>
+                <div id="comment-like">
+                    <p><a href="/user/showprofile/?id=<%= question.user.id %>">Created By: <%= question.user.fullname %>
+                        </a></span>
+                </div>
+        </li>
+    </ul>
+</div>

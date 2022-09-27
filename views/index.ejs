@@ -16,7 +16,9 @@
             <!--question -->
             <div class="top-question">
                 <div class="top-question-title">
-                    <a href="<%= question._id %>"><%= question.title %></a>
+
+                    <!--?id=<%= question._id %> -->
+                    <a href="./question/detail/?id=<%= question._id %>"><%= question.title %></a>
                 </div>
                 <div class="top-question-description">
                     <%= question.description %>

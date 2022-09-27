@@ -10,7 +10,7 @@ class ChatEngine {
         }
 
     }
-
+    
 
     connectionHandler() {
         let self = this;
@@ -61,4 +61,12 @@ class ChatEngine {
             $('#chats').append(newMessage);
         })
     }
+}
+
+
+function showchatBox(){
+      if($('#chat-container').css('visibility')=='hidden')
+        $('#chat-container').css('visibility','visible')
+        else
+        $('#chat-container').css('visibility','hidden')
 }

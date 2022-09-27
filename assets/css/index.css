@@ -9,7 +9,9 @@ a {
     text-decoration: none;
     color: black
 }
-
+a:hover{
+    color:#fc6f6f
+}
 header {
     padding: 10px;
     width: 98.5%;
@@ -122,6 +124,7 @@ header {
     height: 300px;
     overflow-y: auto;
     justify-content: flex-end;
+    visibility: hidden;
 }
 
 #chat-input {
@@ -146,7 +149,16 @@ header {
     width: 300px;
     border-radius: 52px 0px 52px 0px;
 }
-
+#minimize-chat{
+    width: 100%;
+    position: fixed;
+    top: 225px;
+}
+#minimize-chat button{
+    font-size:20px;
+    color:red;
+    width:100px;
+}
 .to-user-chat {
     text-align: right;
     margin-left: 150px;
@@ -155,7 +167,6 @@ header {
 .from-user-chat {
     background-color: #ec7c7f;
 }
-
 
 /*Login form*/
 #Login-container {
@@ -354,4 +365,47 @@ footer {
 
 #social .fa-square-google-plus {
     color: #d64d41;
+}
+
+/*full detail question css*/
+#full-question-container{
+    width: 100%;
+    background-color: #a3a3a375;
+}
+#question{
+    padding:20px;
+    background-color: #fc8d8d;
+}
+#ques-description,#detail-ques-info{
+    display: flex;
+    background-color: #ffffff;
+    font-size:20px;
+    padding:25px;
+    margin:15px 15px 0px 15px;
+    border-radius:5px;
+    justify-content: space-between;
+}
+#detail-ques-info span{
+    font-size:15px;
+    padding:10px;
+}
+#comments-container{
+    background-color: #a3a3a375;
+    padding:20px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+#comment{
+    background-color: #ffffff;
+    padding:15px;
+    font-size:15px;
+    margin:10px;
+}
+#comment-bullet li{
+    list-style: circle;
+    margin:10px;
+    
 }

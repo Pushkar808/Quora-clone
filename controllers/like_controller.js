@@ -32,7 +32,7 @@ module.exports.toggleLike = async (req, res) => {
             likeable.likes.push(newLike._id);//pushing the id of the like to the post like field array
             likeable.save();
         }
-        return res.redirect('/');
+        return res.redirect('back');
     } catch (err) {
         console.log(err);
         return res.json(500, {

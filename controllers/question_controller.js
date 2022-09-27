@@ -25,3 +25,21 @@ module.exports.myquestions = async (req, res) => {
                 });
     });
 }
+
+module.exports.getfullQues=(req,res)=>{
+    try {
+        
+         questionSchema.findById(req.query.id)
+         .sort('-createdAt')
+         .populate('user')
+         .exec((err, question) => {
+            if (err) { console.log("ERROR In fetching questions" + err); return; }
+            return res.render('full_question', {
+                question: question
+            })
+        })
+    } catch (err) {
+        console.log("ERROR FOUND: " + err);
+        return;
+    }
+}
