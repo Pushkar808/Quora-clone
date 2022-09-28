@@ -29,8 +29,12 @@
                 <!--as length is storing the total likes-->
                 <div class="like">
                         <a href="/like/toggle/?id=<%= question._id %>&type=Question" class="upvote-button">Like <i class="far fa-thumbs-up"></i></a>       
-                   </div>
+                </div>
+                <div class="comments">
+                <span><i class="far fa-comments"></i>:<%= question.comments.length %> </span>
+                </div>
                 <div class="total-upvotes"><span>Likes:</span><%= question.likes.length %></div>       
+            
             </div>
             <div class="createdBy">
                 <p><a href="/user/showprofile/?id=<%= question.user.id %>">Created By: <%= question.user.fullname %></a>

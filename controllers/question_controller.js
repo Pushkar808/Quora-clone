@@ -1,6 +1,6 @@
 const questionSchema = require('../models/question');
 module.exports.ask = (req, res) => {
-    console.log("OK")
+    // console.log("OK")
     res.render('question.ejs');
 }
 module.exports.submitquestion = async (req, res) => {
@@ -32,10 +32,15 @@ module.exports.getfullQues=(req,res)=>{
          questionSchema.findById(req.query.id)
          .sort('-createdAt')
          .populate('user')
+         .populate('comments')
+         .populate('comments.user[0]')
          .exec((err, question) => {
             if (err) { console.log("ERROR In fetching questions" + err); return; }
+            // console.log(question)
+            
             return res.render('full_question', {
-                question: question
+                question: question,
+                current_user:req.user
             })
         })
     } catch (err) {
@@ -43,3 +48,4 @@ module.exports.getfullQues=(req,res)=>{
         return;
     }
 }
+

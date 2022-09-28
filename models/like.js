@@ -13,7 +13,7 @@ const LikeSchema=new mongoose.Schema({
     myPath:{//dynamic path
         type:String,
         required:true,
-        enum:['Question']//that means this can only store type of id as given
+        enum:['Question','Comment']//that means this can only store type of id as given
     }
 },{
     timestamps:true

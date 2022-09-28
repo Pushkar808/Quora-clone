@@ -12,6 +12,7 @@ router.get('/auth/google/callback', passport.authenticate('google', {failureRedi
 router.use('/user',require('./user'));
 router.use('/follow',require('./follower'));
 router.use('/question',require('./question'));
+router.use('/comment',require('./comment'));
 router.use('/like',require('./like'));
 
 router.use('/login',index_controller.LoginForm);

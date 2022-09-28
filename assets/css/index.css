@@ -9,9 +9,11 @@ a {
     text-decoration: none;
     color: black
 }
-a:hover{
-    color:#fc6f6f
+
+a:hover {
+    color: #fc6f6f
 }
+
 header {
     padding: 10px;
     width: 98.5%;
@@ -145,25 +147,29 @@ header {
 #chats div {
     margin-top: 10px;
     margin-bottom: 10px;
-    padding:10px 30px;
+    padding: 10px 30px;
     width: 300px;
     border-radius: 52px 0px 52px 0px;
 }
-#minimize-chat{
+
+#minimize-chat {
     width: 100%;
     position: fixed;
     top: 225px;
 }
-#minimize-chat button{
-    font-size:20px;
-    color:red;
-    width:100px;
+
+#minimize-chat button {
+    font-size: 20px;
+    color: red;
+    width: 100px;
 }
+
 .to-user-chat {
     text-align: right;
     margin-left: 150px;
     background-color: #e13138;
 }
+
 .from-user-chat {
     background-color: #ec7c7f;
 }
@@ -368,44 +374,81 @@ footer {
 }
 
 /*full detail question css*/
-#full-question-container{
+#full-question-container {
     width: 100%;
     background-color: #a3a3a375;
 }
-#question{
-    padding:20px;
+
+#question {
+    padding: 20px;
     background-color: #fc8d8d;
 }
-#ques-description,#detail-ques-info{
+
+#ques-description,
+#add-comment-form {
     display: flex;
     background-color: #ffffff;
-    font-size:20px;
-    padding:25px;
-    margin:15px 15px 0px 15px;
-    border-radius:5px;
+    font-size: 20px;
+    padding: 25px;
+    margin: 15px 15px 0px 15px;
+    border-radius: 5px;
     justify-content: space-between;
 }
-#detail-ques-info span{
-    font-size:15px;
-    padding:10px;
+#ques-description{
+    flex-direction:column;
 }
-#comments-container{
+#detail-ques-info span {
+    font-size: 15px;
+    padding: 10px;
+}
+
+#comments-container,#add-comment-container {
     background-color: #a3a3a375;
-    padding:20px;
+    padding: 20px;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     align-content: space-between;
 }
 
-#comment{
+.comment {
     background-color: #ffffff;
-    padding:15px;
-    font-size:15px;
-    margin:10px;
+    padding: 15px;
+    font-size: 15px;
+    margin: 10px;
 }
-#comment-bullet li{
+
+.comment-bullet li {
     list-style: circle;
-    margin:10px;
-    
+    margin: 10px;
+
+}
+#add-comment{
+    width:100%;
+}
+#add-comment textarea{
+    width:100%;
+    padding:15px;
+    resize: none;
+}
+#add-comment-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#add-comment-form div{
+    margin:10px 0px;
+}
+#add-comment-button input[type=submit]{
+    width: 300px;
+    padding:10px;
+    font-size:18px;
+    background-color: #ec7c7f;
+    color:#ffffff;
+    border:none;
+    cursor: pointer;
+}
+#add-comment-button input[type=submit]:hover{
+    box-shadow:#7f7676 0px 0px 0px 2px;
+
 }

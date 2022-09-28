@@ -1,14 +1,18 @@
 const questionSchema = require('../models/question');
 const LikeSchema = require('../models/like');
-
+const CommentSchema = require('../models/comments');
 module.exports.toggleLike = async (req, res) => {
-    console.log(req._id)
+    // console.log(req._id)
     try {
         let deleted = false;
         let likeable;
         if (req.query.type == "Question") {
             //finding and populating likes field on schema of questions 
             likeable = await questionSchema.findById(req.query.id).populate('likes');
+        }
+        else if (req.query.type == "Comment") {
+            //finding and populating likes field on schema of questions 
+            likeable = await CommentSchema.findById(req.query.id).populate('likes');
         }
         //check if like already there
         let exsistingLike = await LikeSchema.findOne({

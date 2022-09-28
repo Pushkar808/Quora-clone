@@ -13,13 +13,19 @@ const questionSchema = new mongoose.Schema({
         ref: 'Users',
         required: true
     },
-    likes:[//array of likes for a question so that we know which users liked which posts 
+    comments: [//adding id's of comments for specific question
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comments',
+        }
+    ],
+    likes: [//array of likes for a question so that we know which users liked which posts 
         {//also this array length can help us to count the total likes
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'Like'
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Like'
         }
     ]
-},{
+}, {
     timestamps: true
 });
 const Questions = mongoose.model('Questions', questionSchema);

@@ -9,30 +9,49 @@
             <p>
                 <%= question.description %>
             </p>
+            <div id="detail-ques-info">
+                <span><a href="/like/toggle/?id=<%= question._id %>&type=Question">Like<i class="far fa-thumbs-up"></i>:
+                        <%= question.likes.length %></a></span>
+                <span><i class="far fa-comments"></i>:<%= question.comments.length %> </span>
+                <span><a href="/user/showprofile/?id=<%= question.user.id %>">Created By: <%= question.user.fullname %>
+                    </a></span>
+            </div>
         </div>
-        <div id="detail-ques-info">
-            <span><a href="/like/toggle/?id=<%= question._id %>&type=Question">Like<i class="far fa-thumbs-up"></i>:<%=
-                        question.likes.length %></a></span>
-            <span>Comments:100</span>
-            <span><a href="/user/showprofile/?id=<%= question.user.id %>">Created By: <%= question.user.fullname %>
-                </a></span>
-        </div>
+
     </div>
 </div>
-
+<div id="add-comment-container">
+    <form action="/comment/addcomment/?id=<%= question._id %>" method="POST" id="add-comment-form">
+        <div id="add-comment"><textarea placeholder="Write Your Comments here..." name="comment" rows="2"
+                cols="150"></textarea></div>
+        <div id="add-comment-button"><input type="submit" value="Post Comment"></div>
+    </form>
+</div>
 <div id="comments-container">
-    <div id="line"></div>
     <ul id="comment-bullet">
-        <li>
-            <div id="Comment">
-                <div id="comment-descr">
-                    <p>THIS IS COMMENT</p>
+        <% for(comment of question.comments) { %>
+            <li>
+                <div class="Comment">
+                    <div class="comment-descr">
+                        <p>
+                            <%= comment.content %>
+                        </p>
+                    </div>
+                    <div class="comment-like"><a href="/like/toggle/?id=<%= comment._id %>&type=Comment">Like<i
+                                class="far fa-thumbs-up"></i></a></span>
+                        <span>:<%= comment.likes.length %></span>
+                    </div>
+                    <div class="comment-like">
+                        <p><a href="/user/showprofile/?id=<%= question.user.id %>">Created By: <%= comment.username %>
+                            </a></span>
+                    </div>
+                    <% if(comment.user==current_user.id){ %>
+                        <!--show remove button for the user's comment only -->
+                        <div class="delete-comment"><a href="/comment/deletecomment/?id=<%= comment._id %>">Remove
+                                Comment</a></div>
+                        <% } %>
                 </div>
-                <div id="comment-like"><a href="#">Like<i class="far fa-thumbs-up"></div></i></a></span>
-                <div id="comment-like">
-                    <p><a href="/user/showprofile/?id=<%= question.user.id %>">Created By: <%= question.user.fullname %>
-                        </a></span>
-                </div>
-        </li>
+            </li>
+            <% } %>
     </ul>
 </div>

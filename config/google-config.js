@@ -18,8 +18,8 @@ passport.use(
         User.findOne({ email: profile.emails[0].value }).exec(function (err, user) {
             if (err) { console.log('error in google strategy-passport', err); return; }
             // console.log(accessToken, refreshToken);
-            console.log(profile);
-            console.log(user);
+            // console.log(profile);
+            // console.log(user);
             if (user) {
                 // if found, set this user as req.user
                 return done(null, user);
