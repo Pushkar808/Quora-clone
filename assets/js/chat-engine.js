@@ -10,7 +10,7 @@ class ChatEngine {
         }
 
     }
-    
+
 
     connectionHandler() {
         let self = this;
@@ -64,9 +64,20 @@ class ChatEngine {
 }
 
 
-function showchatBox(){
-      if($('#chat-container').css('visibility')=='hidden')
-        $('#chat-container').css('visibility','visible')
-        else
-        $('#chat-container').css('visibility','hidden')
+function showchatBox() {//to toggle the comment bar
+    if ($('#chat-container').css('visibility') == 'hidden')
+        $('#chat-container').css('visibility', 'visible')
+    else
+        $('#chat-container').css('visibility', 'hidden')
+}
+
+function showComments() {
+    if ($('#user-comment-container').css('display') == 'none'){
+        $('#comment').css('color','#fc8d8d')
+        $('#user-comment-container').css('display', 'inline');
+    }
+    else{
+        $('#user-comment-container').css('display', 'none')
+        $('#comment').css('color','#000000')
+    }
 }

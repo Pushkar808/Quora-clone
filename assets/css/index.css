@@ -275,17 +275,17 @@ footer {
 
 /*profile css*/
 #profile-container {
-    width: 60%;
+    width: 100%;
     margin: 10px;
     display: flex;
-    flex-direction: column;
-    padding: 30px;
-    flex-wrap: wrap;
-    /* border:1px solid black; */
+    justify-content: space-around;
+}
+#user-info{
+    padding:40px;
+    width:55%;
     box-shadow: grey 2px 5px 15px;
     border-radius: 5px;
 }
-
 #name-head {
     text-transform: capitalize;
 }
@@ -315,18 +315,29 @@ footer {
     background-color: #1a1a1a;
 }
 
-#stats-container {
+#stats-container,#user-comment-container{
     width: 30%;
     padding: 20px;
-    height: 275px;
-    position: absolute;
-    display: inline-block;
-    bottom: 223px;
-    right: 0%;
     box-shadow: grey 2px 5px 15px;
     border-radius: 5px;
     margin: 10px;
 }
+#user-comment-container{
+    display: none;
+}
+#comments-container{
+    overflow: auto;
+}
+#user-comments{
+    list-style: none;
+}
+.profile_comment{
+    width:90%;
+    background-color: #ffffff;
+    padding:10px;
+    margin:5px 0px;
+}
+
 
 #stats-property-container {
     margin: 30px 0px;
@@ -402,7 +413,7 @@ footer {
     padding: 10px;
 }
 
-#comments-container,#add-comment-container {
+#comments-container,#add-comment-container{
     background-color: #a3a3a375;
     padding: 20px;
     display: flex;

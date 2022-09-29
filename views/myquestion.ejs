@@ -1,5 +1,5 @@
 <div id="top-questions-container">
-    <% if(questions){ %>
+    <% if(!questions){ %>
         <p>No questions asked from your side</p>    
     <% } %>
     <% for(question of questions){ %>
@@ -7,7 +7,7 @@
             <!--question -->
             <div class="top-question">
                 <div class="top-question-title">
-                    <a href="<%= question._id %>"><%= question.title %></a>
+                    <a href="/question/detail/?id=<%= question._id %>"><%= question.title %></a>
                 </div>
                 <div class="top-question-description">
                     <%= question.description %>
@@ -20,10 +20,6 @@
                         <a href="/like/toggle/?id=<%= question._id %>&type=Question" class="upvote-button">Like <i class="far fa-thumbs-up"></i></a>       
                    </div>
                 <div class="total-upvotes"><span>Likes:</span><%= question.likes.length %></div>       
-            </div>
-            <div class="createdBy">
-                <p><a href="/user/showprofile/?id=<%= question.user.id %>">Created By: <%= question.user.fullname %></a>
-                </p>
             </div>
         </div>
         <% } %>

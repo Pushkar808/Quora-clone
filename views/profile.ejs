@@ -1,52 +1,61 @@
 <div id="profile-container">
-    <div id="name-head">
-        <h1>About <%= userdetails.fullname %>
-        </h1>
-        <!--if user is same then user can't follow himself-->
-        <% if(userinfo._id.equals(userdetails._id)==0){ %>
-            <% if (isfollowed){ %>
-                <a href="/follow/user/?id=<%= userdetails.id %>"><i class="fa-solid fa-plus"></i> Follow</a>
-                <% }else{ %>
-                    <a href="/follow/user/?id=<%= userdetails.id %>"><i class="fa-solid fa-plus"></i> Following</a>
-                    <% } %>
+    <div id="user-info">
+        <div id="name-head">
+            <h1>About <%= userdetails.fullname %>
+            </h1>
+            <!--if user is same then user can't follow himself-->
+            <% if(userinfo._id.equals(userdetails._id)==0){ %>
+                <% if (isfollowed){ %>
+                    <a href="/follow/user/?id=<%= userdetails.id %>"><i class="fa-solid fa-plus"></i> Follow</a>
+                    <% }else{ %>
+                        <a href="/follow/user/?id=<%= userdetails.id %>"><i class="fa-solid fa-plus"></i> Following</a>
                         <% } %>
+                            <% } %>
+                            <div>
+                                <% if(userinfo._id.equals(userdetails._id)==0){ %>
+                                    <a href="#" id="Ask-button" onclick="showchatBox()">Ask <%= userdetails.fullname %></a>
+                                    <% } %>
+                            </div>
+                                <hr>
 
-                            <hr>
-    </div>
-    <div id="info-container">
-        <div>
-            <p>Email: <%= userdetails.email %>
-            </p>
         </div>
-        <div>
-            <p>
-                <%= userdetails %>
-            </p>
-        </div>
-        <div>
-            <p>Email: OK@GG>CC</p>
+
+        <div id="info-container">
+            <div>
+                <p>Email: <%= userdetails.email %>
+                </p>
+            </div>
+            <div>
+            <!-- Add about after changing to DB of users -->
+            </div>
         </div>
     </div>
-    <div>
-        <% if(userinfo._id.equals(userdetails._id)==0){ %>
-        <a href="#" id="Ask-button" onclick="showchatBox()">Ask <%= userdetails.fullname %></a>
-        <% } %>
+    
+    <div id="user-comment-container">
+        <% for(comment of comments){ %>
+            <div class="profile_comment">
+               <a href="/question/detail/?id=<%= comment.question._id %>"><%= comment.question.title %></a> 
+                    <hr>
+                    <%= comment.content %>
+            </div>
+            <% } %>
+                </ul>
     </div>
-</div>
-<div id="stats-container">
+
+    <div id="stats-container">
     <div id="name-head">
         <h1>User-stats</h1>
         <hr>
     </div>
     <div id="stats-property-container">
         <div id="stats-property">
-            <a href="#">
+            <a href="/question/userquestion/?id=<%= userdetails._id %>">
                 <div id="stats-img"><i class="fa-solid fa-circle-question"></i></div>
                 <div id="stats-name">Questions</div>
             </a>
         </div>
         <div id="stats-property">
-            <a href="#">
+            <a href="#" onclick="showComments()" id="comment">
                 <div id="stats-img"><i class="fa-solid fa-comment"></i></div>
                 <div id="stats-name">Comments</div>
             </a>
@@ -64,11 +73,13 @@
     </div>
 </div>
 
+</div>
+<!--  -->
 
 
 <div id="chat-container">
     <div id="minimize-chat">
-            <button onclick="showchatBox()">X</button>
+        <button onclick="showchatBox()">X</button>
     </div>
 
     <div id="chats">

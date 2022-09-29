@@ -1,5 +1,6 @@
 const Commentschema = require('../models/comments');
 const questionSchema = require('../models/question');
+
 module.exports.addComment = async (req, res) => { //adding comments
     console.log("Comment added");
     const new_comment = await Commentschema.create({
@@ -32,3 +33,4 @@ module.exports.deletecomment = (req, res) => {
         }
     });
 }
+
