@@ -1,22 +1,22 @@
 const user = require('../models/user')
 const questionSchema = require('../models/question')
-
-module.exports.indexSample =  (req, res) => {
+const otpMailer = require('../mailers/otp')
+module.exports.indexSample = (req, res) => {
     let showLogout = false;
     if (req.isAuthenticated()) {//if user is already authenticated then show logout button
         showLogout = true;
     }
     try {
-         questionSchema.find({})
-         .sort('-createdAt')
-         .populate('user')
-         .exec((err, questions) => {
-            if (err) { console.log("ERROR In fetching questions" + err); return; }
-            return res.render('index', {
-                questions: questions,
-                showLogout: showLogout
+        questionSchema.find({})
+            .sort('-createdAt')
+            .populate('user')
+            .exec((err, questions) => {
+                if (err) { console.log("ERROR In fetching questions" + err); return; }
+                return res.render('index', {
+                    questions: questions,
+                    showLogout: showLogout
+                })
             })
-        })
     } catch (err) {
         console.log("ERROR FOUND: " + err);
         return;
@@ -86,5 +86,36 @@ module.exports.destroySession = (req, res) => {
     req.logout((err) => {
         if (err) { console.log("ERROR In Logging out user" + err); return done(err); }
         res.redirect('/');
+    });
+}
+
+module.exports.forgotPass = (req, res) => {
+    // 
+    res.render('forgotPass')
+}
+
+module.exports.sendOTP = (req, res) => {
+    console.log(req.body.email)
+    user.findOne({ email: req.body.email }, (err, user) => {
+        console.log("ok")
+        if (err) {
+            console.log("ERROR In finding user in passport config" + err);
+            return;
+        }
+        //if user has been there then
+        if (user) {
+            let otp=Math.floor(1000 + Math.random() * 9000);;
+            let is_mailSent=otpMailer.sendOtp(req.body.email,otp);//send mail to the user
+            console.log(is_mailSent)
+            res.render('forgotPass', {
+                userFound: true,
+                otp:otp,
+            })
+        }
+        else {
+            return res.render('forgotPass', {
+                userFound: false
+            });
+        }
     });
 }

@@ -1,0 +1,48 @@
+<% if(userFound) { %>
+    <div id="Login-container">
+        <div id="login-img"><img src="./images/login.png"></div>
+        <div id="login-form-container">
+            <div id="login-head"></div>
+            <div id="login-info"></div>
+            <form action="/sendOTP" method="post">
+                <h1 style="text-align: center;">Enter your email here</h1>
+                <input type="email" id="email" name="email" required placeholder="abc@gmail.com">
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+            <div id="google-signin">
+                <a href="/auth/google" id="sign-in-google">
+                    <img src="./images/g-logo.png">
+                    <span>Sign in with Google</span>
+                </a>
+            </div>
+        </div>
+</div>
+
+
+
+    <% }else{ %>
+        <div id="Login-container">
+            <div id="login-img"><img src="./images/login.png"></div>
+            <div id="login-form-container">
+                <div id="login-head"></div>
+                <div id="login-info"></div>
+                <form action="/sendOTP" method="post">
+                    <h1 style="color:red">Email not found try to signup</h1>
+                    <input type="email" id="email" name="email" required placeholder="abc@gmail.com">
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+                <div id="google-signin">
+                    <a href="/auth/google" id="sign-in-google">
+                        <img src="./images/g-logo.png">
+                        <span>Sign up with Google</span>
+                    </a>
+                </div>
+                <p><a href="/login">Signup/Login</a></p>
+
+            </div>
+        </div>
+        </div>
+
+        <% } %>
