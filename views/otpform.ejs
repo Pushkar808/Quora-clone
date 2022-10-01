@@ -1,0 +1,17 @@
+        <% if(checkAgain){ %>
+            <!--if this is true then alert will be shown-->
+            <script>alert("OTP incorrect check it again")</script>
+            <% } %>
+                <div id="Login-container">
+                    <div id="login-img"><img src="./images/login.png"></div>
+                    <div id="login-form-container">
+                        <!--check OTP form-->
+                        <form action="/checkOTP" method="post" onsubmit="showotpform()">
+                            <h1 style="text-align: center;">Enter OTP sent to your mail</h1>
+                            <input type="number" name="otp" onkeypress="if(this.value.length==4) return false;" required
+                                placeholder="****">
+                            <br>
+                            <input type="submit" value="Verify">
+                        </form>
+                    </div>
+                </div>

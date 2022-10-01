@@ -13,3 +13,14 @@ function toggle(id){
 function description(){
     console.log("DESCR")
 }
+function checkbothPass(){
+    if($('#password').val() == $('#cpassword').val()){
+        console.log("Password match")
+        alert('password Changed succesfully')
+        return true;//both passwords match submit the form;
+    }
+    else{
+        alert("Passwords doesn't match try again");
+        return false;
+    }
+}

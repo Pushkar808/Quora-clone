@@ -1,6 +1,7 @@
 const user = require('../models/user')
 const questionSchema = require('../models/question')
-const otpMailer = require('../mailers/otp')
+const otpMailer = require('../mailers/otp');
+const cookieParser = require('cookie-parser');
 module.exports.indexSample = (req, res) => {
     let showLogout = false;
     if (req.isAuthenticated()) {//if user is already authenticated then show logout button
@@ -90,9 +91,31 @@ module.exports.destroySession = (req, res) => {
 }
 
 module.exports.forgotPass = (req, res) => {
-    // 
-    res.render('forgotPass')
+    res.render('forgotPass', {
+        userFound: true
+    })
 }
+module.exports.newPass = (req, res) => {
+    res.render('newPass');
+}
+
+var get_cookies = function (request) {
+    var cookies = {};
+    request.headers && request.headers.cookie.split(';').forEach(function (cookie) {
+        var parts = cookie.match(/(.*?)=(.*)$/)
+        cookies[parts[1].trim()] = (parts[2] || '').trim();
+    });
+    return cookies;
+};
+module.exports.changePass = async (req, res) => {
+    const password = req.body.password;
+    console.log(password);
+    const update = { password: password };
+    const cookie=get_cookies(req)['user_id'];
+    let doc=await user.findOneAndUpdate({id:cookie},update,{new:true});
+    res.redirect('/login')
+}
+
 
 module.exports.sendOTP = (req, res) => {
     console.log(req.body.email)
@@ -104,18 +127,34 @@ module.exports.sendOTP = (req, res) => {
         }
         //if user has been there then
         if (user) {
-            let otp=Math.floor(1000 + Math.random() * 9000);;
-            let is_mailSent=otpMailer.sendOtp(req.body.email,otp);//send mail to the user
-            console.log(is_mailSent)
-            res.render('forgotPass', {
-                userFound: true,
-                otp:otp,
+            let otp = Math.floor(1000 + Math.random() * 9000);;
+            let is_mailSent = otpMailer.sendOtp(req.body.email,user.fullname,otp);//send mail to the user
+            module.exports.getotp = () => {
+                return otp;
+            }//so that it can be used by other files also
+            res.cookie('user_id', user._id);//setting cookie for the user
+            res.render('otpform', {//if mailis sent the  render the form to input OTP
+                userFound: is_mailSent,
+                isOtpcorrect: false,//so that we can render input form for otp once
+                checkAgain: false
             })
         }
         else {
             return res.render('forgotPass', {
-                userFound: false
+                userFound: is_mailSent
             });
         }
     });
+}
+
+
+module.exports.checkOTP = (req, res) => {
+    let otp = this.getotp();
+    if (req.body.otp == otp) {
+        //here checkagain is used to show error if otp is incorrent
+        res.redirect('/newPass');
+    }
+    else {
+        res.render('otpform', { isOtpcorrect: false, checkAgain: true });
+    }
 }

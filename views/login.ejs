@@ -12,17 +12,19 @@
             <input type="submit" value="Login">
         </form>
         <div id="forgotPass">
-            <a href="/forgotPass">Forgot Password ?</a>
+            <a href="/forgotPass" id="forgotPassword">Forgot Password ?</a>
         </div>
         <div id="google-signin">
             <a href="/auth/google" id="sign-in-google">
-                <img src="./images/g-logo.png">
-                <span>Sign in with Google</span>
+                <div>
+                    <img src="./images/g-logo.png">
+                    <span>Sign in with Google</span>
+                </div>
             </a>
         </div>
     </div>
 
-    <p >New to community? <a href="#" onClick="toggle('Signup')">Signup here</a></p>
+    <p>New to community? <a href="#" onClick="toggle('Signup')">Signup here</a></p>
 </div>
 
 <!-- sign up form -->
@@ -41,11 +43,11 @@
                 <label for="cpassword">Confirm Password:</label>
                 <input type="password" name="cpassword" id="cpassword" required>
                 <label for="fullname">Full name:</label>
-                <input type="text" id="fullname" name="fullname"  required>
+                <input type="text" id="fullname" name="fullname" required>
                 <br>
                 <input type="submit" value="SignUp">
             </form>
-            
+
             <div id="google-signin">
                 <a href="/auth/google" id="sign-in-google">
                     <img src="./images/g-logo.png">
@@ -53,6 +55,6 @@
                 </a>
             </div>
         </div>
-        <p >Already have Account? <a href="#" onClick="toggle('Signin')">Login here</a></p>
+        <p>Already have Account? <a href="#" onClick="toggle('Signin')">Login here</a></p>
     </div>
 </div>

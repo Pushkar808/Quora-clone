@@ -9,8 +9,8 @@ let transporter=nodemailer.createTransport({
     port: 587,//port of smtp server(can be found on internet)
     secure:false,
     auth:{//actual accaount from which mail has to be sent
-        user:'yourmailhere',
-        pass:'*******'
+        user:'d20mca11046@cuchd.in',
+        pass:'Pushkar08@'
     }
 });
 
@@ -21,7 +21,7 @@ let renderTemplate=(data,realtivePath)=>{
         path.join(__dirname,'../views/mailers',realtivePath),//path where is the ejs file located that is to be sent
         data,
         function(err,template){
-            if(err){console.log("error in template of mail")}
+            if(err){console.log("error in template of mail"+err)}
             mailHtml=template;
         }
     )

@@ -6,8 +6,9 @@ hr {
 }
 
 a {
-    text-decoration: none;
-    color: black
+    /* text-decoration: none; */
+    color: black;
+    cursor: pointer;
 }
 
 a:hover {
@@ -196,17 +197,11 @@ header {
     width: 500px;
 }
 
-#google-signin {
-    position: relative;
-    top: -30px;
-}
 
 #sign-in-google {
     position: relative;
     color: #000000;
-    padding: 25px;
     text-decoration: none;
-
 }
 
 #sign-in-google img {
@@ -224,6 +219,26 @@ header {
     /*signup form show it on click*/
 }
 
+/*password change*/
+
+#passwordchange-container{
+    /* padding:20px;    */
+}
+#passchange-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+#passchange-form input{
+    margin:10px 0px;
+    padding:5px;
+    display: block;
+    width:400px;
+    font-size: 20px;
+}
+#forgotPassword{
+    cursor: pointer;
+}
 /*footer code*/
 footer {
     padding: 10px;
@@ -463,3 +478,4 @@ footer {
     box-shadow:#7f7676 0px 0px 0px 2px;
 
 }
+

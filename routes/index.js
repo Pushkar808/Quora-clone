@@ -20,7 +20,13 @@ router.use('/logout',index_controller.destroySession);
 router.use('/signin',index_controller.Signin);
 router.use('/signup',index_controller.Signup);
 router.use('/forgotPass',index_controller.forgotPass);
+router.use('/newPass',index_controller.newPass);
+router.use('/changePass',index_controller.changePass);
 router.use('/sendOTP',index_controller.sendOTP);
+router.use('/checkOTP',index_controller.checkOTP);
+
+
+
 
 router.use('/',index_controller.indexSample);
 
